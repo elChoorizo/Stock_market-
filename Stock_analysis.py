@@ -4,14 +4,18 @@ Created on Tue Aug  2 10:25:54 2022
 
 @author: Thomas Chantoin
 """
-
 import numpy as np
-import pandas_datareader as pdr
+import pandas_datareader
+from pandas_datareader import data as pdr
 import datetime as dt
 import pandas as pd
+import yfinance as yf
+#import fix_yahoo_finance 
+yf.pdr_override()
 import matplotlib.pyplot as plt
-start = dt.datetime(2019, 1, 1)
-stock_name = "AAPL"
+start = dt.datetime(2022, 6, 1)
+end = dt.datetime(2023,1,30)
+stock_name = "SOI.PA"
 data = pdr.get_data_yahoo(stock_name, start)
 data.head()
 high_low = data['High'] - data['Low']
